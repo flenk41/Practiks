@@ -23,8 +23,7 @@ namespace Practika.Pages
         public RemaindPage(Users usersp)
         {
             InitializeComponent();
-            string login = userspass.Login;
-            LogBox.Text = login;
+            LogBox.Text = userspass.Login;
             userspass = usersp;
         }
 
