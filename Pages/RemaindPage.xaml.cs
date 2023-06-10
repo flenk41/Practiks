@@ -19,29 +19,19 @@ namespace Practika.Pages
     /// </summary>
     public partial class RemaindPage : Window
     {
-        Model1 context;
-        public RemaindPage(Model1 cont)
+        Users userspass;
+        public RemaindPage(Users usersp)
         {
             InitializeComponent();
-            context = cont;
+            string login = userspass.Login;
+            LogBox.Text = login;
+            userspass = usersp;
         }
 
         private void RemaindClick(object sender, RoutedEventArgs e)
         {
-            var a = Convert.ToInt32(TabBox.Text);
-            var b = LogBox.Text;
-            var result = context.Users.Where(x => x.TableID == a && x.Login == b).ToString();
-
-            if(result.Count() > 0 ) { 
-                Users users = context.Users.ToList().Find(x => x.TableID.Equals(b));
-                string show = users.Pass.ToString();
-                MessageBox.Show(show);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Ошибка! Пользователь не найден.");
-                this.Close();
+            if(userspass.Login == LogBox.Text && userspass.TableID==Convert.ToInt32(TabBox)) {
+                MessageBox.Show($"Ваш пароль: {userspass.Pass}", "Пароль", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

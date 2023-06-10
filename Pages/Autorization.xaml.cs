@@ -69,9 +69,8 @@ namespace Practika.Pages
 
         private void Remaind_Click(object sender, RoutedEventArgs e)
         {
-            RemaindPage passRemindWindow = new RemaindPage(context);
-            passRemindWindow.Show();
-     
+            Users users = context.Users.Find(LoginBox.Text);
+            NavigationService.Navigate(new RemaindPage(users));
         }
     }
 }
