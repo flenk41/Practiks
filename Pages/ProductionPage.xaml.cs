@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,20 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Practika
+namespace Practika.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ProductionPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductionPage : Page
     {
         Model1 context;
-        Window window;
-        public MainWindow()
+        public ProductionPage(Model1 _cont)
         {
             InitializeComponent();
-            context = new Model1();
-            MyFrame.Navigate(new Pages.Autorization(context,window));
+            context = _cont;
+            Orders.ItemsSource = context.Purchase.ToList();
+        }
+
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -22,11 +22,13 @@ namespace Practika.Pages
     public partial class Autorization : Page
     {
         Model1 context;
-        public Autorization(Model1 cont)
+        Window Window;
+        public Autorization(Model1 cont, Window window)
         {
             InitializeComponent();
             context = cont;
             Remaind.Visibility = Visibility.Collapsed;
+            Window = window;
         }
 
         int countClick = 0;
@@ -39,7 +41,7 @@ namespace Practika.Pages
             if (users != null)
             {
                 if(users.Pass.Equals(pas)) {
-                    MessageBox.Show("Вы успешно авторизованы");
+                    NavigationService.Navigate(new MainMenuPage(context, Window));
                     countClick = 0;
                 }
                 else

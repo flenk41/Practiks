@@ -1,0 +1,35 @@
+﻿<Page x:Class="Practika.Pages.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practika.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1000"
+      Title="MainMenuPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Frame Name="FrameToBasePage" Grid.Column="1"/>
+        <Grid Background="#009fda">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="/Img/logo.png" Margin="25" Grid.Row="0" Grid.RowSpan="3"/>
+            <Button Content="Заказы" Click="OrderButton" Grid.Row="3"/>
+            <Button Content="Выход" Click="ExitButton" Grid.Row="9"/>
+        </Grid>
+    </Grid>
+</Page>
