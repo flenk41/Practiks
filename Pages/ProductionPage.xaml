@@ -34,9 +34,9 @@
         </ComboBox>
         <DataGrid Name="Orders" AutoGenerateColumns="False" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="5">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Продукт" Width="*" Binding="{Binding CodeProduct}"/>
-                <DataGridTextColumn Header="ФИО клиента" Width="2*" Binding="{Binding IdClient}"/>
-                <DataGridTextColumn Header="ФИО менеджера" Width="2*" Binding="{Binding idManeger}"/>
+                <DataGridTextColumn Header="Продукт" Width="*" Binding="{Binding Product.Model}"/>
+                <DataGridTextColumn Header="ФИО клиента" Width="2*" Binding="{Binding Client.FIO}"/>
+                <DataGridTextColumn Header="ФИО менеджера" Width="2*" Binding="{Binding Manager.FIO}"/>
                 <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding DatePuschase}"/>
                 <DataGridTextColumn Header="Доставка" Width="*" Binding="{Binding Delivery}"/>
                 <DataGridTextColumn Header="Платеж" Width="*" Binding="{Binding PaymentType}"/>
