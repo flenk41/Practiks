@@ -27,6 +27,11 @@ namespace Practika.Pages
             InitializeComponent();
             context = cont;
             Orders.ItemsSource = context.Purchase.ToList();
+            var categoryList = context.Purchase.ToList();
+            categoryList.Insert(0, new Purchase() { PaymentType = "Все" });
+            //categoryList.Insert(0, new Purchase() { Delivery = true && false });
+            CategoryBox.ItemsSource = categoryList;
+            CategoryBox.SelectedIndex = 0;
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
@@ -57,6 +62,31 @@ namespace Practika.Pages
                     MessageBox.Show("Ошибка!");
                 }
             }
+        }
+
+        void FilterData()
+        {
+            var list = context.Purchase.ToList();
+            if (CategoryBox.SelectedIndex != 0)
+            {
+                Purchase purсhase = CategoryBox.SelectedItem as Purchase;
+                list = list.Where(x => x.PaymentType == purсhase.PaymentType).ToList();
+            }
+            if (!string.IsNullOrWhiteSpace(SearchBox.Text))
+            {
+                list = list.Where(x => x.Client.FIO.ToLower().Contains(SearchBox.Text.ToLower())).ToList();
+            }
+            Orders.ItemsSource = list;
+        }
+
+        private void SearchChange(object sender, TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
+        private void ChangeCategory(object sender, SelectionChangedEventArgs e)
+        {
+            FilterData();
         }
     }
 }

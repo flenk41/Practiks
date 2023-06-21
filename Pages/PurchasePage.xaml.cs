@@ -32,6 +32,12 @@ namespace Practika.Pages
             ManagerBox.ItemsSource = context.Manager.ToList();
             PayBox.ItemsSource = context.Purchase.Distinct().ToList();
         }
+
+        public PurchasePage(Model1 context)
+        {
+            this.context = context;
+        }
+
         private void CancelClick(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -83,7 +89,7 @@ namespace Practika.Pages
                 };
                 context.Purchase.Add(purchase);
                 context.SaveChanges();
-                NavigationService.Navigate(new PurchasePage(context)); //тут баг 
+                NavigationService.Navigate(new PurchasePage(context));
             }
             catch (FormatException)
             {

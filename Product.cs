@@ -36,6 +36,9 @@ namespace Practika
 
         public bool IsPesence { get; set; }
 
+        [Column(TypeName = "image")]
+        public byte[] Image { get; set; }
+
         public virtual Mark Mark { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

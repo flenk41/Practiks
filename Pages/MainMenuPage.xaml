@@ -29,6 +29,7 @@
             </Grid.RowDefinitions>
             <Image Source="/Img/logo.png" Margin="25" Grid.Row="0" Grid.RowSpan="3"/>
             <Button Content="Заказы" Click="OrderButton" Grid.Row="3"/>
+            <Button Content="Продукция" Click="ProductCLick" Grid.Row="4"/>
             <Button Content="Выход" Click="ExitButton" Grid.Row="9"/>
         </Grid>
     </Grid>

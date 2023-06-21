@@ -38,5 +38,10 @@ namespace Practika.Pages
         {
             FrameToBasePage.Navigate(new ProductionPage(context));
         }
+
+        private void ProductCLick(object sender, RoutedEventArgs e)
+        {
+            FrameToBasePage.Navigate(new ProduciaPage(context));
+        }
     }
 }
