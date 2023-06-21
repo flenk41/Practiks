@@ -22,12 +22,12 @@ namespace Practika.Pages
     public partial class MainMenuPage : Page
     {
         Window Window;
-        Model1 _context;
-        public MainMenuPage(Model1 context, Window window)
+        Model1 context;
+        public MainMenuPage(Model1 cont, Window window)
         {
             InitializeComponent();
             Window = window;
-            _context = context;
+            context = cont;
         }
 
         private void ExitButton(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace Practika.Pages
         }
         private void OrderButton(object sender, RoutedEventArgs e)
         {
-            FrameToBasePage.Navigate(new ProductionPage(_context));
+            FrameToBasePage.Navigate(new ProductionPage(context));
         }
     }
 }

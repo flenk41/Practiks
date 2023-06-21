@@ -22,16 +22,41 @@ namespace Practika.Pages
     public partial class ProductionPage : Page
     {
         Model1 context;
-        public ProductionPage(Model1 _cont)
+        public ProductionPage(Model1 cont)
         {
             InitializeComponent();
-            context = _cont;
+            context = cont;
             Orders.ItemsSource = context.Purchase.ToList();
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PurchasePage(context));
+        }
+
+        private void UpdateClick(object sender, RoutedEventArgs e)
+        {
+            Purchase purchase = Orders.SelectedItem as Purchase;
+            NavigationService.Navigate(new PurchasePage(context, purchase));
+        }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы точно желаете удалить заказ?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Purchase purchase = Orders.SelectedItems as Purchase;
+                    context.Purchase.Remove(purchase);
+                    context.SaveChanges();
+                    Orders.ItemsSource = context.Purchase.ToList();
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка!");
+                }
+            }
         }
     }
 }

@@ -33,6 +33,12 @@
             
         </ComboBox>
         <DataGrid Name="Orders" AutoGenerateColumns="False" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="5">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="UpdateClick">Редактировать</MenuItem>
+                    <MenuItem Click="DeleteClick">Удалить</MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Продукт" Width="*" Binding="{Binding Product.Model}"/>
                 <DataGridTextColumn Header="ФИО клиента" Width="2*" Binding="{Binding Client.FIO}"/>
