@@ -32,5 +32,10 @@ namespace Practika
         public virtual Manager Manager { get; set; }
 
         public virtual Product Product { get; set; }
+
+        internal object Where(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

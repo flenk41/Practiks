@@ -27,11 +27,19 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="2" Text="Заказы" FontSize="30"/>
         <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Fill="#cf2f44" Height="15" VerticalAlignment="Top"/>
-        <TextBlock Text="Продукт" Grid.Row="3"/>
-        <TextBlock Text="ФИО клиента" Grid.Row="4"/>
-        <TextBlock Text="ФИО менеджера" Grid.Row="5"/>
-        <TextBlock Text="Дата и время" Grid.Row="6"/>
-        <TextBlock Text="Доставка" Grid.Row="7"/>
-        <TextBlock Text="Платеж" Grid.Row="8"/>
+        <TextBlock Text="Продукт" Grid.Row="3" Width="90" HorizontalAlignment="Right"/>
+        <ComboBox Margin="10" DisplayMemberPath="Model" Grid.Row="3" Grid.Column="2" x:Name="ModelBox" HorizontalAlignment="Left" Width="250" Height="40" VerticalAlignment="Center"/>
+        <TextBlock Text="ФИО клиента" Grid.Row="4" Width="130" HorizontalAlignment="Right"/>
+        <ComboBox Margin="10" DisplayMemberPath="FIO" Grid.Row="4" Grid.Column="2" x:Name="FIOBox" HorizontalAlignment="Left" Width="250" Height="40" VerticalAlignment="Center"/>
+        <TextBlock Text="ФИО менеджера" Grid.Row="5" Width="160" HorizontalAlignment="Right"/>
+        <ComboBox Margin="10" DisplayMemberPath="FIO" Grid.Row="5" Grid.Column="2" x:Name="ManagerBox" HorizontalAlignment="Left" Width="250" Height="40" VerticalAlignment="Center"/>
+        <TextBlock Text="Дата и время" Grid.Row="6" Width="120" HorizontalAlignment="Right"/>
+        <TextBox Name="DateTimeBox" Grid.Row="6" Grid.Column="1" Width="250" HorizontalAlignment="Left"/>
+        <TextBlock Text="Нужнали доставка (да или нет)" Grid.Row="7" Width="285" HorizontalAlignment="Right"/>
+        <TextBox Name="DeliveryBox" Grid.Row="7" Grid.Column="1" Width="90" HorizontalAlignment="Left"/>
+        <TextBlock Text="Платеж" Grid.Row="8" Width="90" HorizontalAlignment="Right"/>
+        <ComboBox Margin="10" DisplayMemberPath="PaymentType" Grid.Row="8" Grid.Column="2" x:Name="PayBox" HorizontalAlignment="Left" Width="250" Height="40" VerticalAlignment="Center"/>
+        <Button Content="Отмена" Width="100" Grid.Row="9" HorizontalAlignment="Right" Click="CancelClick"/>
+        <Button Content="Добавить" Grid.Row="9" Grid.Column="1" Width="100" HorizontalAlignment="Left" Click="AddPurchClick"/>
     </Grid>
 </Page>

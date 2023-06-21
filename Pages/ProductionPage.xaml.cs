@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -30,7 +31,7 @@ namespace Practika.Pages
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PurchasePage(context));
         }
     }
 }

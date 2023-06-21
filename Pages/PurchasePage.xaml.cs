@@ -20,9 +20,51 @@ namespace Practika.Pages
     /// </summary>
     public partial class PurchasePage : Page
     {
-        public PurchasePage()
+        Model1 context;
+        Purchase purchase;
+        public PurchasePage(Model1 cont)
         {
             InitializeComponent();
+            context = cont;
+
+        }
+        private void CancelClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void AddPurchClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Product product = ModelBox.SelectedItem as Product;
+                Client client = FIOBox.SelectedItem as Client;
+                Manager manager = ManagerBox.SelectedItem as Manager;
+                Purchase purchase = new Purchase()
+                {
+                    Id = context.Purchase.ToList().Last().Id + 1,
+                    CodeProduct = product.Code,
+                    Product = product,
+                    IdClient = client.Id,
+                    idManeger = manager.Id,
+                    DatePuschase = Convert.ToDateTime(DateTimeBox.Text),
+                    Delivery = DeliveryBox.Text.ToLower().Equals("да") ? true : false,
+                    PaymentType = PayBox.Text,
+                    Client = client,
+                    Manager = manager
+                };
+                context.Purchase.Add(purchase);
+                context.SaveChanges();
+                NavigationService.Navigate(new PurchasePage(context));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ошибка в вводимых данных");
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка!");
+            }
         }
     }
 }

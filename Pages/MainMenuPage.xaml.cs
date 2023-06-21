@@ -32,9 +32,8 @@ namespace Practika.Pages
 
         private void ExitButton(object sender, RoutedEventArgs e)
         {
-            Window.Close();
+            NavigationService.GoBack();
         }
-
         private void OrderButton(object sender, RoutedEventArgs e)
         {
             FrameToBasePage.Navigate(new ProductionPage(_context));
