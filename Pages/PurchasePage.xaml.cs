@@ -83,7 +83,7 @@ namespace Practika.Pages
                 };
                 context.Purchase.Add(purchase);
                 context.SaveChanges();
-                NavigationService.Navigate(new PurchasePage(context)); // Ошибка!
+                NavigationService.Navigate(new PurchasePage(context));
             }
             catch (FormatException)
             {
