@@ -22,6 +22,6 @@
         <TextBox Grid.Row="1" Grid.Column="1" Name="TabBox" Margin="20,20,20,20"/>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="252,0,0,0" Width="138" Text="Введите логин: " Height="24"/>
         <TextBox Grid.Row="2" Grid.Column="1" Name="LogBox" Margin="20,20,20,17"/>
-        <Button Grid.ColumnSpan="2" Grid.Row="6" Height="50" Width="200" Content="Напомнить" Click="RemaindClick"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="6" Height="50" Width="200" Content="Напомнить" Click="RemaindClick" />
     </Grid>
 </Window>
